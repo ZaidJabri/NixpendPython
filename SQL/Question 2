@@ -1,0 +1,25 @@
+SELECT 
+   DP.doctor_id,
+    DP.patient_id,
+    D.field,
+    D.degree,
+    D.Department_id,
+    W.worker_id,
+    W.name AS Doctor_Name,
+    P.Name AS Patient_Name
+FROM 
+    doctor_patient DP 
+JOIN 
+    doctor D ON D.doctor_id = DP.doctor_id 
+JOIN 
+    depratment DM ON DM.depratment_id = D.Department_id 
+JOIN 
+    worker W ON W.worker_id = D.worker_id 
+JOIN
+    patient P ON DP.patient_id = P.Patient_id
+    where 
+    P.Age >= 12
+    AND EXTRACT(YEAR FROM DP.Time) <> 2022 
+ORDER BY 
+    W.Name DESC,
+ P.Name ASC;
