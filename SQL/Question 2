@@ -12,7 +12,7 @@ FROM
 JOIN 
     doctor D ON D.doctor_id = DP.doctor_id 
 JOIN 
-    depratment DM ON DM.depratment_id = D.Department_id 
+    department DM ON DM.department_id = D.Department_id 
 JOIN 
     worker W ON W.worker_id = D.worker_id 
 JOIN
