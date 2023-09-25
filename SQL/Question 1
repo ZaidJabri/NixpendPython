@@ -4,10 +4,10 @@ select
     MP.MEDICATION_ID,
     MP.prespection_id, 
     M.DOSSES, 
-    M.EXPERATION_DATE,
+    M.EXPIRATION_DATE,
     case 
     when 
-    M.EXPERATION_DATE < TO_DATE ('2023-09-19', 'YYYY-MM-DD') then 'Expired' else 'Active' end as medication_status
+    M.EXPIRATION_DATE < TO_DATE ('2023-09-19', 'YYYY-MM-DD') then 'Expired' else 'Active' end as medication_status
     from 
 	MEDICATION_PRESCRIBED MP 
     join 
