@@ -1,0 +1,16 @@
+select 
+    P.PATIENT_ID,
+    P.Name, 
+    MP.MEDICATION_ID,
+    MP.prespection_id, 
+    M.DOSSES, 
+    M.EXPERATION_DATE,
+    case 
+    when 
+    M.EXPERATION_DATE < TO_DATE ('2023-09-19', 'YYYY-MM-DD') then 'Expired' else 'Active' end as medication_status
+    from 
+	MEDICATION_PRESCRIBED MP 
+    join 
+	patient P on MP.PATIENT_ID = P.PATIENT_ID 
+    join 
+	medication M on M.MEDICATION_ID = MP.MEDICATION_ID ;
